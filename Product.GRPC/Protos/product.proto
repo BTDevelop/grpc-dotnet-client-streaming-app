@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option csharp_namespace = "Product.GRPC";
+
+package product_grpc;
+
+service ProductGRPCService {
+  rpc InsertRangeProductsStream(stream InsertRangeProductsRequest) returns (InsertRangeProductsResponse);
+}
+
+message InsertRangeProductsRequest {
+  int32 supplier_id = 1;
+  string sku = 2;
+  string name = 3;
+  string description = 4;
+  string brand = 5;
+}
+
+message InsertRangeProductsResponse {
+  int32 count = 1;
+}
